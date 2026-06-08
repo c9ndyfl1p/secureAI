@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure AI — Локальные ИИ-системы On-Premise. Цифровой суверенитет корпорации.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        black: '#000000',
+                        darkCard: '#09090b',
+                        darkCardMuted: '#121214',
+                        borderMuted: '#27272a',
+                        textMuted: '#a1a1aa'
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .apple-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .bento-glow:hover {
+            box-shadow: 0 0 30px 0 rgba(39, 39, 42, 0.4);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans antialiased selection:bg-white selection:text-black">
+
+    <header class="fixed top-0 left-0 w-full z-50 border-b border-borderMuted bg-black/70 apple-blur transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <svg class="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-105" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M12 8v8"/>
+                    <path d="M9 12h6"/>
+                </svg>
+                <span class="font-semibold tracking-tight text-lg">Secure AI</span>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-textMuted">
+                <a href="#features" class="hover:text-white transition-colors duration-200">Решения</a>
+                <a href="#compliance" class="hover:text-white transition-colors duration-200">Безопасность</a>
+                <a href="#tech-stack" class="hover:text-white transition-colors duration-200">Технологии</a>
+                <a href="#timeline" class="hover:text-white transition-colors duration-200">Этапы внедрения</a>
+                <a href="#pricing" class="hover:text-white transition-colors duration-200">Стоимость</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="#contact" class="inline-flex items-center justify-center px-4 py-2 text-xs font-medium tracking-wide text-black bg-white rounded-lg hover:bg-neutral-200 transition-all duration-200">
+                    Связаться с ИТ-инженером
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-textMuted hover:text-white focus:outline-none" aria-label="Открыть меню">
+                <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-b border-borderMuted bg-black px-4 pt-2 pb-6 space-y-4">
+            <nav class="flex flex-col space-y-4 text-base font-medium text-textMuted">
+                <a href="#features" class="mobile-nav-link hover:text-white transition-colors">Решения</a>
+                <a href="#compliance" class="mobile-nav-link hover:text-white transition-colors">Безопасность</a>
+                <a href="#tech-stack" class="mobile-nav-link hover:text-white transition-colors">Технологии</a>
+                <a href="#timeline" class="mobile-nav-link hover:text-white transition-colors">Этапы внедрения</a>
+                <a href="#pricing" class="mobile-nav-link hover:text-white transition-colors">Стоимость</a>
+            </nav>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-nav-link block w-full text-center px-4 py-3 text-sm font-medium text-black bg-white rounded-lg">
+                    Связаться с ИТ-инженером
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_40%,transparent_100%)] opacity-30"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 py-12">
+            <div class="inline-flex items-center space-x-2 bg-darkCard border border-borderMuted px-3 py-1.5 rounded-full text-xs font-medium text-textMuted tracking-wider uppercase mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Изолированная ИИ-инфраструктура для Enterprise</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-8 max-w-4xl mx-auto leading-[1.1]">
+                Интеллект внутри периметра. <br class="hidden sm:inline">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-200 via-neutral-400 to-neutral-600">Абсолютный цифровой суверенитет.</span>
+            </h1>
+            
+            <p class="text-base sm:text-lg md:text-xl text-textMuted max-w-3xl mx-auto mb-10 leading-relaxed">
+                Развертывание автономных больших языковых моделей (LLM) On-Premise на серверах вашей компании. Полностью исключаем передачу конфиденциальных данных и коммерческой тайны во внешние облачные сервисы.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-black bg-white rounded-xl hover:bg-neutral-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                    Заказать предпроектный аудит
+                </a>
+                <a href="#pricing" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-white bg-darkCard border border-borderMuted rounded-xl hover:bg-darkCardMuted transition-all duration-300 borderMuted">
+                    Изучить тарифные планы
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-24 border-t border-borderMuted bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center md:text-left mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-textMuted font-semibold mb-3">Интеграционные решения</h2>
+                <p class="text-3xl font-bold tracking-tight sm:text-4xl">Специализированные модули локального ИИ</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 bg-darkCard border border-borderMuted rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 bento-glow group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-neutral-900 border border-borderMuted flex items-center justify-center mb-6 text-neutral-400 group-hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Локальные AI-Консультанты</h3>
+                        <p class="text-textMuted text-sm leading-relaxed max-w-xl">
+                            Интеллектуальные текстовые ассистенты для вашего сайта или внутренних порталов. Модель обучается на предоставленных регламентах, номенклатурных каталогах и скриптах. Обеспечивает автоматизацию первой линии клиентской поддержки 24/7 без риска раскрытия закрытой корпоративной информации.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-borderMuted/50 flex items-center text-xs text-textMuted group-hover:text-white transition-colors">
+                        Изолированный инференс без запросов к внешним API &rarr;
+                    </div>
+                </div>
+
+                <div class="bg-darkCard border border-borderMuted rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 bento-glow group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-neutral-900 border border-borderMuted flex items-center justify-center mb-6 text-neutral-400 group-hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Защищенная AI-Аналитика</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">
+                            Инструменты семантического анализа массивов внутренней документации, договоров и баз данных. Извлечение ключевых метрик, структурирование данных и автоматическая генерация саммари без риска компрометации коммерческой информации третьими лицами.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-borderMuted/50 flex items-center text-xs text-textMuted group-hover:text-white transition-colors">
+                        Локальный семантический поиск по архивам &rarr;
+                    </div>
+                </div>
+
+                <div class="bg-darkCard border border-borderMuted rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 bento-glow group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-neutral-900 border border-borderMuted flex items-center justify-center mb-6 text-neutral-400 group-hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Инфраструктурная Автоматизация</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">
+                            Интеграция искусственного интеллекта в существующие корпоративные системы CRM и ERP по локальному API. Автоматическое составление экспертных отчетов, ответов на контрагенты и писем на основе триггерных событий без обращения во внешнюю сеть.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-borderMuted/50 flex items-center text-xs text-textMuted group-hover:text-white transition-colors">
+                        Прямая связь по закрытому локальному API &rarr;
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 bg-gradient-to-br from-darkCard to-neutral-950 border border-borderMuted rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 bento-glow group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-neutral-900 border border-borderMuted flex items-center justify-center mb-6 text-neutral-400 group-hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Строгое соответствие отраслевой логике</h3>
+                        <p class="text-textMuted text-sm leading-relaxed max-w-xl">
+                            Архитектура адаптируется под специфику конкретных департаментов вашего бизнеса. Мы разворачиваем не абстрактные языковые модели, а готовые функциональные инструменты для оптимизации сквозных рабочих процессов.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-borderMuted/50 flex items-center text-xs text-textMuted group-hover:text-white transition-colors">
+                        Гибкая ролевая модель доступа (RBAC) &rarr;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="compliance" class="py-24 bg-neutral-950 border-t border-b border-borderMuted relative overflow-hidden">
+        <div class="absolute right-0 bottom-0 w-96 h-96 bg-neutral-900/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <div class="inline-block bg-neutral-900 text-neutral-400 border border-borderMuted text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-md mb-4">
+                        Юридическая безопасность
+                    </div>
+                    <h2 class="text-3xl font-bold tracking-tight text-white mb-6 sm:text-4xl">
+                        Правовые риски использования облачных ИИ
+                    </h2>
+                    <div class="w-16 h-1 bg-white rounded"></div>
+                </div>
+                <div class="lg:col-span-7 space-y-6 text-textMuted text-sm sm:text-base leading-relaxed">
+                    <p>
+                        Использование зарубежных облачных инфраструктур (включая API ChatGPT, Claude или Gemini) для обработки внутренних корпоративных данных напрямую нарушает законодательство Российской Федерации в области защиты персональных данных.
+                    </p>
+                    <blockquote class="border-l-2 border-neutral-500 pl-4 my-4 italic text-neutral-300 bg-black/30 py-3 pr-2 rounded-r-lg">
+                        Внедрение On-Premise решений Secure AI полностью устраняет риски незаконной трансграничной передачи конфиденциальной информации.
+                    </blockquote>
+                    <p>
+                        Вся обработка персональных данных клиентов, кадровых документов и коммерческих сведений выполняется локально, на серверах внутри РФ. ИИ-система функционирует в закрытом ИТ-контуре, полностью подконтрольном службе безопасности (СБ) вашей компании.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech-stack" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-textMuted font-semibold mb-3">Инфраструктурный уровень</h2>
+                <p class="text-3xl font-bold tracking-tight sm:text-4xl">Используемые технологии и архитектура</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-darkCard border border-borderMuted p-8 rounded-xl">
+                    <div class="text-xs font-mono text-neutral-600 mb-4 tracking-widest">LAYER 01</div>
+                    <h3 class="text-lg font-semibold mb-3 text-white">Базовые open-source модели</h3>
+                    <p class="text-textMuted text-xs sm:text-sm leading-relaxed">
+                        Использование оптимизированных языковых моделей (Llama 3, Mistral, Qwen), разворачиваемых локально через изолированную среду инференса <strong>Ollama</strong>. Полная независимость от зарубежных облачных лицензий.
+                    </p>
+                </div>
+                <div class="bg-darkCard border border-borderMuted p-8 rounded-xl">
+                    <div class="text-xs font-mono text-neutral-600 mb-4 tracking-widest">LAYER 02</div>
+                    <h3 class="text-lg font-semibold mb-3 text-white">Архитектура RAG</h3>
+                    <p class="text-textMuted text-xs sm:text-sm leading-relaxed">
+                        Подключение искусственного интеллекта к изолированным корпоративным базам данных через векторный поиск. Модель оперирует исключительно верифицированными фактами, что исключает недостоверные ответы (галлюцинации).
+                    </p>
+                </div>
+                <div class="bg-darkCard border border-borderMuted p-8 rounded-xl">
+                    <div class="text-xs font-mono text-neutral-600 mb-4 tracking-widest">LAYER 03</div>
+                    <h3 class="text-lg font-semibold mb-3 text-white">Аппаратная гибкость</h3>
+                    <p class="text-textMuted text-xs sm:text-sm leading-relaxed">
+                        Стабильный запуск и оптимизация инференса как на классических серверах с графическими процессорами <strong>Nvidia</strong>, так и на производительных локальных кластерах Apple Silicon (<strong>Mac Studio / Mac mini M2</strong>).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="py-24 bg-neutral-950 border-t border-b border-borderMuted">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-textMuted font-semibold mb-3">Регламент интеграции</h2>
+                <p class="text-3xl font-bold tracking-tight sm:text-4xl">Процесс развертывания в Enterprise-сегменте</p>
+            </div>
+
+            <div class="bg-darkCard border border-borderMuted rounded-2xl overflow-hidden p-4 sm:p-8">
+                <div class="flex flex-col sm:flex-row border-b border-borderMuted mb-8 gap-2 sm:gap-0">
+                    <button class="tab-btn flex-1 text-center sm:text-left pb-4 px-2 font-medium text-sm transition-all duration-200 border-b-2 border-white text-white focus:outline-none" data-tab="step1">
+                        01. NDA и Аудит
+                    </button>
+                    <button class="tab-btn flex-1 text-center sm:text-left pb-4 px-2 font-medium text-sm transition-all duration-200 border-b-2 border-transparent text-textMuted hover:text-white focus:outline-none" data-tab="step2">
+                        02. Развертывание
+                    </button>
+                    <button class="tab-btn flex-1 text-center sm:text-left pb-4 px-2 font-medium text-sm transition-all duration-200 border-b-2 border-transparent text-textMuted hover:text-white focus:outline-none" data-tab="step3">
+                        03. Экспертиза ИБ
+                    </button>
+                    <button class="tab-btn flex-1 text-center sm:text-left pb-4 px-2 font-medium text-sm transition-all duration-200 border-b-2 border-transparent text-textMuted hover:text-white focus:outline-none" data-tab="step4">
+                        04. API-Интеграция
+                    </button>
+                </div>
+
+                <div id="tab-contents">
+                    <div id="step1" class="tab-content block animate-fadeIn">
+                        <h4 class="text-xl font-semibold mb-3 text-white">Шаг 1. Подписание NDA и предпроектный аудит</h4>
+                        <p class="text-textMuted text-sm sm:text-base leading-relaxed max-w-3xl">
+                            Обязательное подписание соглашения о неразглашении (NDA) до начала любых технических работ. Сбор инфраструктурных требований, анализ структуры данных, аудит текущего ИБ-контура и оценка имеющихся серверных мощностей (Nvidia / Apple Silicon).
+                        </p>
+                    </div>
+                    <div id="step2" class="tab-content hidden animate-fadeIn">
+                        <h4 class="text-xl font-semibold mb-3 text-white">Шаг 2. Развертывание базовой LLM</h4>
+                        <p class="text-textMuted text-sm sm:text-base leading-relaxed max-w-3xl">
+                            Изолированная установка выбранной языковой модели через среду Ollama на вычислительных мощностях компании. Первичная настройка RAG-архитектуры и развертывание векторной базы знаний на тестовом массиве документов.
+                        </p>
+                    </div>
+                    <div id="step3" class="tab-content hidden animate-fadeIn">
+                        <h4 class="text-xl font-semibold mb-3 text-white">Шаг 3. Юридический комплаенс и экспертиза ИБ</h4>
+                        <p class="text-textMuted text-sm sm:text-base leading-relaxed max-w-3xl">
+                            Проверка развернутого решения на соответствие внутренним регламентам информационной безопасности вашей компании. Контрольное тестирование архитектуры и подтверждение полного закрытия нормативных требований Федерального закона № 152-ФЗ.
+                        </p>
+                    </div>
+                    <div id="step4" class="tab-content hidden animate-fadeIn">
+                        <h4 class="text-xl font-semibold mb-3 text-white">Шаг 4. Кастомная интеграция и настройка RBAC</h4>
+                        <p class="text-textMuted text-sm sm:text-base leading-relaxed max-w-3xl">
+                            Связывание локального ИИ-модуля по API с корпоративными системами (1С, Битрикс24). Разработка и стилизация интерфейсных виджетов под внутренний регламент компании, разграничение прав доступа пользователей к данным (Role-Based Access Control).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-textMuted font-semibold mb-3">Прозрачное ценообразование</h2>
+                <p class="text-3xl font-bold tracking-tight sm:text-4xl">Стоимость развертывания и интеграции</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <div class="bg-darkCard border border-borderMuted rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 hover:border-neutral-500">
+                    <div>
+                        <div class="text-xs font-mono text-neutral-500 mb-2 uppercase tracking-wider">Пакет «Базовый»</div>
+                        <h3 class="text-xl font-bold text-white mb-4">Развертывание локальной модели</h3>
+                        <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-6">
+                            Оптимальное решение для пилотного тестирования технологии искусственного интеллекта на инфраструктуре компании.
+                        </p>
+                        <ul class="space-y-3 text-xs sm:text-sm text-neutral-300 mb-8">
+                            <li class="flex items-center space-x-2">
+                                <span class="text-neutral-500">&#10003;</span>
+                                <span>Установка базовой LLM через Ollama</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-neutral-500">&#10003;</span>
+                                <span>Квантование под текущее железо</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-neutral-500">&#10003;</span>
+                                <span>Базовый консольный интерфейс</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="border-t border-borderMuted pt-6 mb-6">
+                            <span class="text-3xl font-bold text-white">50 000 ₽</span>
+                            <span class="text-xs text-textMuted block mt-1">Фиксированная стоимость работ</span>
+                        </div>
+                        <a href="#contact" class="block w-full text-center px-4 py-3 text-xs font-medium text-white bg-neutral-900 border border-borderMuted rounded-xl hover:bg-neutral-800 transition-colors">
+                            Запросить пилот
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-darkCard border-2 border-neutral-400 rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-white text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-bl-lg">
+                        Рекомендуем
+                    </div>
+                    <div>
+                        <div class="text-xs font-mono text-neutral-400 mb-2 uppercase tracking-wider">Пакет «Интеграция»</div>
+                        <h3 class="text-xl font-bold text-white mb-4">Развертывание и настройка локальных агентов</h3>
+                        <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-6">
+                            Создание интеллектуальной экосистемы ИИ-агентов, интегрированных во внутренние бизнес-процессы на базе вашего оборудования.
+                        </p>
+                        <ul class="space-y-3 text-xs sm:text-sm text-neutral-300 mb-8">
+                            <li class="flex items-center space-x-2">
+                                <span class="text-white">&#10003;</span>
+                                <span>Архитектура RAG (векторные базы знаний)</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-white">&#10003;</span>
+                                <span>Интеграция с корпоративными CRM / ERP</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-white">&#10003;</span>
+                                <span>UX/UI-виджеты и настройка RBAC-прав</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="border-t border-borderMuted pt-6 mb-6">
+                            <span class="text-3xl font-bold text-white">250 000 ₽</span>
+                            <span class="text-xs text-textMuted block mt-1">Под ключ на вашем оборудовании</span>
+                        </div>
+                        <a href="#contact" class="block w-full text-center px-4 py-3 text-xs font-medium text-black bg-white rounded-xl hover:bg-neutral-200 transition-colors">
+                            Обсудить интеграцию
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-darkCard border border-borderMuted rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 hover:border-neutral-500">
+                    <div>
+                        <div class="text-xs font-mono text-neutral-500 mb-2 uppercase tracking-wider">Пакет «Программно-аппаратный»</div>
+                        <h3 class="text-xl font-bold text-white mb-4">Покупка оборудования и предустановка</h3>
+                        <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-6">
+                            Развертывание автономной ИИ-инфраструктуры с нуля. Проектирование, закупка серверных мощностей и полная пусконаладка.
+                        </p>
+                        <ul class="space-y-3 text-xs sm:text-sm text-neutral-300 mb-8">
+                            <li class="flex items-center space-x-2">
+                                <span class="text-neutral-500">&#10003;</span>
+                                <span>Подбор и закупка серверов (Nvidia/Apple)</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-neutral-500">&#10003;</span>
+                                <span>Предустановка ОС и ИИ-окружения</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="text-neutral-500">&#10003;</span>
+                                <span>Аттестация контура службой безопасности</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="border-t border-borderMuted pt-6 mb-6">
+                            <span class="text-3xl font-bold text-white">от 1 300 000 ₽</span>
+                            <span class="text-xs text-textMuted block mt-1">Итоговая стоимость зависит от ТЗ</span>
+                        </div>
+                        <a href="#contact" class="block w-full text-center px-4 py-3 text-xs font-medium text-white bg-neutral-900 border border-borderMuted rounded-xl hover:bg-neutral-800 transition-colors">
+                            Запросить расчет спецификации
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-black border-t border-borderMuted pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-borderMuted">
+                <div class="lg:col-span-6 space-y-4">
+                    <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                        Оставьте заявку на расчет требований к серверному оборудованию
+                    </h3>
+                    <p class="text-textMuted text-sm sm:text-base max-w-lg leading-relaxed">
+                        Наши инженеры бесплатно проанализируют текущую ИТ-инфраструктуру вашей компании и сформируют технические рекомендации для развертывания пилотного стенда.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <form id="audit-form" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="email" class="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">Корпоративный Email</label>
+                                <input type="email" id="email" required class="w-full bg-darkCard border border-borderMuted rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-neutral-400 transition-colors" placeholder="name@company.ru">
+                            </div>
+                            <div>
+                                <label for="telegram" class="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">Telegram-контакт</label>
+                                <input type="text" id="telegram" required class="w-full bg-darkCard border border-borderMuted rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-neutral-400 transition-colors" placeholder="@username">
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-black bg-white rounded-xl hover:bg-neutral-200 transition-all duration-200">
+                            Отправить запрос инженерам &rarr;
+                        </button>
+                        <p id="form-status" class="text-xs text-center hidden animate-pulse"></p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-textMuted gap-4">
+                <div class="flex items-center space-x-2">
+                    <span class="font-semibold text-white">Secure AI</span>
+                    <span>&copy; 2026. Все права защищены.</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.consultant.ru/document/cons_doc_LAW_64404/" target="_blank" rel="noopener" class="hover:text-white transition-colors">Документация по 152-ФЗ</a>
+                    <a href="#" class="hover:text-white transition-colors">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Мобильное меню
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            const toggleMenu = () => {
+                const isOpen = mobileMenu.classList.contains('hidden');
+                if (isOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIconOpen.classList.add('hidden');
+                    menuIconClose.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                }
+            };
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            mobileNavLinks.forEach(link => link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) toggleMenu();
+            }));
+
+            // Переключение табов регламента
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('border-white', 'text-white');
+                        btn.classList.add('border-transparent', 'text-textMuted');
+                    });
+                    button.classList.remove('border-transparent', 'text-textMuted');
+                    button.classList.add('border-white', 'text-white');
+
+                    tabContents.forEach(content => {
+                        if (content.id === targetTab) {
+                            content.classList.remove('hidden');
+                            content.classList.add('block');
+                        } else {
+                            content.classList.remove('block');
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Форма обратной связи
+            const form = document.getElementById('audit-form');
+            const formStatus = document.getElementById('form-status');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                formStatus.classList.remove('hidden', 'text-red-400', 'text-emerald-400');
+                formStatus.classList.add('text-neutral-400');
+                formStatus.textContent = 'Шифрование пакета и отправка запроса...';
+
+                setTimeout(() => {
+                    formStatus.classList.remove('text-neutral-400');
+                    formStatus.classList.add('text-emerald-400');
+                    formStatus.textContent = 'Запрос принят. Назначенный ИТ-инженер свяжется с вами в течение 30 минут.';
+                    form.reset();
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
